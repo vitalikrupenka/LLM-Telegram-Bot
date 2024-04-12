@@ -1,6 +1,7 @@
 # LLM-Telegram-Bot
 
 Telegram bot for chatting with LLM models (Mixtral, LLama) via Groq Cloud.
+
 It's like ChatGPT right in your Telegram, but faster.
 
 <h2>How to use:</h2>
