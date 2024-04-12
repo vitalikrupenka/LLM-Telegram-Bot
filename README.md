@@ -23,8 +23,23 @@ Replace
 <b><YOUR_BOT_API_TOKEN></b>
 with your actual token acquired in step 2.
 
-4. Clone this repository
+4. Create a folder for the bot (in this example it is ~/LLM-Telegram-Bot) and Clone this repository
 ```bash
+$ mkdir ~/LLM-Telegram-Bot
+$ cd ~/LLM-Telegram-Bot
 $ git clone https://github.com/vitalikrupenka/LLM-Telegram-Bot
 ```
 
+5. Install dependencies
+```bash
+$ pip install -r requirements.txt
+```
+
+6. Run app.py
+```bash
+$ python app.py
+```
+
+Now you can simply ask your Telegram bot anything right in the chat and get a response.
+
+7. Enjoy!
