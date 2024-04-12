@@ -10,18 +10,18 @@ Telegram bot for chatting with LLM models (Mixtral, LLama) via Groq Cloud.
 4. Enjoy!
 5. Buy me a coffee if you like it ☕️❤️ https://www.buymeacoffee.com/aimate
 
+<ul>
+<h3>Default Settings</h3>
+<li>Model: Mixtral-8x7b-32768. Use /conf command to change</li>
+<li>Conversational Memory: 100 messages</li>
+</ul>
+
 <h2>How to set up your own Telegram bot:</h2>
 
 <ul>
 <h3>Pre-requisites</h3>
 <li>MacOs/Linux</li>
 <li>Python 3.10+</li>
-</ul>
-
-<ul>
-<h3>Default Settings</h3>
-<li>Model: Mixtral-8x7b-32768</li>
-<li>Conversational Memory: 100 messages</li>
 </ul>
 
 If you want to customize the bot for your own needs here are the steps to set up your own LLM Telegram bot:
