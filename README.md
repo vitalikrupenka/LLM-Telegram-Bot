@@ -12,6 +12,18 @@ Telegram bot for chatting with LLM models (Mixtral, LLama) via Groq Cloud.
 
 <h2>How to set up your own Telegram bot:</h2>
 
+<ul>
+<h3>Pre-requisites</h3>
+<li>MacOs/Linux</li>
+<li>Python 3.10+</li>
+</ul>
+
+<ul>
+<h3>Default Settings</h3>
+<li>Model: Mixtral-8x7b-32768</li>
+<li>Conversational Memory: 100 messages</li>
+</ul>
+
 If you want to customize the bot for your own needs here are the steps to set up your own LLM Telegram bot:
 1. Create your Telegram bot with <a href="https://t.me/botfather">BotFather</a>
 2. Get your bot API Token. Don't know how? <a href="https://core.telegram.org/bots/">Read the Telegram Bot Documentation</a>
