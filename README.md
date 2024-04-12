@@ -60,3 +60,5 @@ Now you can simply ask your Telegram bot anything right in the chat and get a re
 >If you want the bot to be always available it's better to deploy app.py somewhere in the cloud, like Heroku, AWS, PythonAnywhere or other services of your choice.
 
 7. Enjoy!
+
+Join my Telegram channel about AI tools: https://t.me/ai_mait
