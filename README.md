@@ -42,4 +42,7 @@ $ python app.py
 
 Now you can simply ask your Telegram bot anything right in the chat and get a response.
 
+>Important: the bot will be available only while app.py is running and your computer is on.
+>If you want the bot to be always available it's better to deploy app.py somewhere in the cloud, like Heroku, AWS, PythonAnywhere or other services of your choice.
+
 7. Enjoy!
