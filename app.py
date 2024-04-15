@@ -18,17 +18,17 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 conversational_memory_length = 100
 memory = ConversationBufferWindowMemory(k=conversational_memory_length)
 
+# Define model choices
+models = ['mixtral-8x7b-32768', 'llama2-70b-4096']  # Extend with other models
+
 # Initialize default model and conversation
-default_model = "mixtral-8x7b-32768"  # Set the default model
+default_model = models[0]  # Set the default model
 groq_chat = ChatGroq(groq_api_key=GROQ_API_KEY, model_name=default_model)
 conversation = ConversationChain(llm=groq_chat, memory=memory)
 
 # Define a dictionary to store user data and session state
 user_data = dict()
 session_state = {'chat_history': [], 'model': default_model, 'conversation': conversation}
-
-# Define model choices
-models = ['mixtral-8x7b-32768', 'llama2-70b-4096']  # Extend with other models
 
 # Function to create the configuration inline keyboard for models
 def create_model_inline_keyboard():
