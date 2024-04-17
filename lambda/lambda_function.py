@@ -72,6 +72,8 @@ def lambda_handler(event, context):
                         handle_start(chat_id)
                     elif text == '/conf':
                         handle_conf(chat_id)
+                    elif text == '/menu':
+                        handle_menu(chat_id)
                 else:
                     user_id = str(chat_id)  # Telegram chat ID as user ID
                     handle_text(chat_id, text, user_id)
@@ -91,11 +93,15 @@ def handle_start(chat_id):
                        f"The current model is set to {default_model}\n\n"
                        "Use the /conf command to change the model.\n\n"
                        "Feel free to ask anything. Let's talk!")
-    bot.send_message(chat_id, welcome_message)
+    bot.send_message(chat_id, welcome_message, reply_markup=create_reply_keyboard())
 
 def handle_conf(chat_id):
     markup = create_model_inline_keyboard()
     bot.send_message(chat_id, "Choose the model for the conversation:", reply_markup=markup)
+
+def handle_menu(chat_id):
+    markup = create_menu_inline_keyboad()
+    bot.send_message(chat_id, "Choose a Quick Action:", reply_markup=markup)
 
 def handle_callback_query(call):
     # Ensure that 'message' and 'from' are properly checked before access
@@ -133,7 +139,8 @@ def handle_text(chat_id, text, user_id):
     messages = [system_message]
 
     # Add user messages for context, taking the last 100 user messages if there are more than 100
-    messages.extend(user_messages[-100:] if len(user_messages) > 100 else user_messages)
+    context_frame = 10
+    messages.extend(user_messages[-context_frame:] if len(user_messages) > context_frame else user_messages)
 
     # Add the current user message
     messages.append(user_message)
@@ -155,7 +162,28 @@ def handle_text(chat_id, text, user_id):
 
 # Create the configuration inline keyboard for models
 def create_model_inline_keyboard():
-    keyboard = types.InlineKeyboardMarkup(row_width=2)
+    keyboard = types.InlineKeyboardMarkup(row_width=1)
     model_buttons = [types.InlineKeyboardButton(text=model, callback_data='model_' + model) for model in models]
     keyboard.add(*model_buttons)
+    keyboard.add(types.InlineKeyboardButton(text="Buy me a coffee", url="https://t.me/ai_mait_llm_gpt_bot/support"))
+    return keyboard
+
+def create_menu_inline_keyboad():
+    markup = types.InlineKeyboardMarkup()
+    # markup.add(types.InlineKeyboardButton("Configure Settings", callback_data='conf'))
+    markup.add(types.InlineKeyboardButton("Buy me a coffee", url="https://t.me/ai_mait_llm_gpt_bot/support"))
+    return markup
+
+def create_reply_keyboard():
+    buttons = [
+        # types.KeyboardButton('/conf'),
+        types.KeyboardButton('What you can do?'),
+        types.KeyboardButton('Tell me a joke')
+    ]
+
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False, row_width=1)
+    
+    for button in buttons:
+        keyboard.add(button)
+
     return keyboard
