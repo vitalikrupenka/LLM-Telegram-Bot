@@ -17,7 +17,8 @@ bot = TeleBot(TELEGRAM_BOT_TOKEN)
 telegram_message_types = [
     'text', 'audio', 'video', 'photo', 'voice', 'document', 'sticker', 'video_note', 'contact', 'location', 'poll'
 ]
-models = ['mixtral-8x7b-32768', 'llama2-70b-4096']
+models = ['mixtral-8x7b-32768', 'llama3-70b-8192', 'llama3-8b-8192', 'llama2-70b-4096']
+labels = ['Fast + Memory, 32K: ', 'Smart but Slow, 8K: ', 'Fast Llama 3, 8K: ', 'Fast Llama 2, 4K: ']
 default_model = models[0]
 
 # Helper functions
@@ -130,8 +131,9 @@ for message_type in handle_message_types:
 
 # Utility functions for keyboard creation
 def create_model_inline_keyboard():
+    names = {model: label + model for model, label in zip(models, labels)}
     keyboard = types.InlineKeyboardMarkup(row_width=1)
-    model_buttons = [types.InlineKeyboardButton(text=model, callback_data='model_' + model) for model in models]
+    model_buttons = [types.InlineKeyboardButton(text=label, callback_data='model_' + model) for model, label in names.items()]
     keyboard.add(*model_buttons)
     keyboard.add(types.InlineKeyboardButton(text="Buy me a coffee", url="https://t.me/ai_mait_llm_gpt_bot/support"))
     return keyboard
