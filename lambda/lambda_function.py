@@ -138,10 +138,10 @@ def create_model_inline_keyboard():
 
 def create_menu_inline_keyboad():
     buttons = [
-        types.InlineKeyboardButton("Summarize (Coming Soon...)", callback_data='summarize'),
-        types.InlineKeyboardButton("Rewrite (Coming Soon...)", callback_data='rewrite'),
-        types.InlineKeyboardButton("Change LLM", callback_data='conf'),
-        types.InlineKeyboardButton("Buy me a coffee", url="https://t.me/ai_mait_llm_gpt_bot/support")
+        types.InlineKeyboardButton("💁 Summarize (Coming Soon...)", callback_data='summarize'),
+        types.InlineKeyboardButton("📝 Rewrite (Coming Soon...)", callback_data='rewrite'),
+        types.InlineKeyboardButton("⚙️ Change LLM", callback_data='conf'),
+        types.InlineKeyboardButton("☕️ Buy me a coffee", url="https://t.me/ai_mait_llm_gpt_bot/support")
     ]
 
     markup = types.InlineKeyboardMarkup()
@@ -152,8 +152,8 @@ def create_menu_inline_keyboad():
 
 def create_reply_keyboard():
     buttons = [
-        types.KeyboardButton('What you can do?'),
-        types.KeyboardButton('Tell me a joke')
+        types.KeyboardButton('❓ What you can do?'),
+        types.KeyboardButton('😂 Tell me a joke')
     ]
 
     return types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False).row(*buttons)
